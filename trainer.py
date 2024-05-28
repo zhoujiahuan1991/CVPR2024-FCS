@@ -60,7 +60,7 @@ def _train(args):
     )
     model = factory.get_model(args["model_name"], args)
 
-    cnn_curve, nme_curve = {"top1": [], "top5": []}, {"top1": [], "top5": []}
+    cnn_curve = {"top1": [], "top5": []}
 
     for task in range(data_manager.nb_tasks):
         logging.info("All params: {}".format(count_parameters(model._network)))
@@ -69,37 +69,19 @@ def _train(args):
         )
         model.incremental_train(data_manager)
         cnn_accy, nme_accy = model.eval_task()
+
+        logging.info("CNN: {}".format(cnn_accy["grouped"]))
+        logging.info("NME: {}".format(nme_accy["grouped"]))
+
+        cnn_curve["top1"].append(cnn_accy["top1"])
+        cnn_curve["top5"].append(cnn_accy["top5"])
+
+        logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
+        logging.info("CNN top5 curve: {}".format(cnn_curve["top5"]))
         
+        cnn_accy, nme_accy = model.eval_task(only_new=True)
+        cnn_accy, nme_accy = model.eval_task(only_old=True)
 
-        if nme_accy is not None:
-            logging.info("CNN: {}".format(cnn_accy["grouped"]))
-            logging.info("NME: {}".format(nme_accy["grouped"]))
-
-            cnn_curve["top1"].append(cnn_accy["top1"])
-            cnn_curve["top5"].append(cnn_accy["top5"])
-
-            nme_curve["top1"].append(nme_accy["top1"])
-            nme_curve["top5"].append(nme_accy["top5"])
-
-            logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-            logging.info("CNN top5 curve: {}".format(cnn_curve["top5"]))
-            logging.info("NME top1 curve: {}".format(nme_curve["top1"]))
-            logging.info("NME top5 curve: {}\n".format(nme_curve["top5"]))
-            
-            cnn_accy, nme_accy = model.eval_task(only_new=True)
-            cnn_accy, nme_accy = model.eval_task(only_old=True)
-
-            
-        else:
-            logging.info("No NME accuracy.")
-            logging.info("CNN: {}".format(cnn_accy["grouped"]))
-
-            cnn_curve["top1"].append(cnn_accy["top1"])
-            cnn_curve["top5"].append(cnn_accy["top5"])
-            logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-            logging.info("CNN top5 curve: {}".format(cnn_curve["top5"]))
-            #logging.info("CNN top1 curve: {}".format(cnn_curve["top1"]))
-            #logging.info("CNN top5 curve: {}\n".format(cnn_curve["top5"]))
         
         model.after_task()
         if args["is_task0"] :
