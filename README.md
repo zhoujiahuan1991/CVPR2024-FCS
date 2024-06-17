@@ -1,6 +1,6 @@
 # FCS: Feature Calibration and Separation for Non-Exemplar Class Incremental Learning
 
-Official implementation of "[FCS: Feature Calibration and Separation for Non-Exemplar Class Incremental Learning](https://cvpr.thecvf.com/Conferences/2024/AcceptedPapers)"
+Official implementation of "[FCS: Feature Calibration and Separation for Non-Exemplar Class Incremental Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Li_FCS_Feature_Calibration_and_Separation_for_Non-Exemplar_Class_Incremental_Learning_CVPR_2024_paper.html)"
 
 
 <p align="center"><img src="./files/pipeline-fcs.png" align="center" width="750"></p>
@@ -34,10 +34,12 @@ This project is mainly based on [PyCIL](https://github.com/G-U-N/PyCIL).
 
 If you find this work helpful, please cite:
 ```
-@article{,
+@inproceedings{li2024fcs,
   title={FCS: Feature Calibration and Separation for Non-Exemplar Class Incremental Learning},
-  author={Qiwei Li, Yuxin Peng, Jiahuan Zhou},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  author={Li, Qiwei and Peng, Yuxin and Zhou, Jiahuan},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={28495--28504},
   year={2024}
 }
+
 ```
