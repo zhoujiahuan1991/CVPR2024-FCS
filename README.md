@@ -46,6 +46,4 @@ If you find this work helpful, please cite:
 
 ## Contact
 
-For any questions, feel free to contact us (xkl@stu.pku.edu.cn).
-
 Welcome to our Laboratory Homepage ([OV<sup>3</sup> Lab](https://zhoujiahuan1991.github.io/)) for more information about our papers, source codes, and datasets.
