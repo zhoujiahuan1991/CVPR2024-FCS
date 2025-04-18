@@ -1,5 +1,7 @@
 # FCS: Feature Calibration and Separation for Non-Exemplar Class Incremental Learning
-
+<p align="center">
+<a href="https://github.com/zhoujiahuan1991/CVPR2024-FCS"><img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fzhoujiahuan1991%2FCVPR2024-FCS&label=FCS&icon=github&color=%233d8bfd"></a>
+</p>
 Official implementation of "[FCS: Feature Calibration and Separation for Non-Exemplar Class Incremental Learning](https://openaccess.thecvf.com/content/CVPR2024/html/Li_FCS_Feature_Calibration_and_Separation_for_Non-Exemplar_Class_Incremental_Learning_CVPR_2024_paper.html)"
 
 
